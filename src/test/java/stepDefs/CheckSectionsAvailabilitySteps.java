@@ -19,11 +19,11 @@ public class CheckSectionsAvailabilitySteps {
     BillingAddressFragment billingAddressFragment = new BillingAddressFragment();
     DeliveryAddressFragment deliveryAddressFragment = new DeliveryAddressFragment();
 
+    PaymentFragment paymentFragment = new PaymentFragment();
     @And("'Payment' section is disabled for editing")
     public void checkIfPaymentSectionIsDisabled() {
 
-        //  boolean paymentSectionAvailability = paymentFragment.getCardNumberField().isEnabled();
-        Assert.assertFalse(false);
+        Assert.assertFalse(paymentFragment.isEnabledCardNumberField());
     }
 
     @When("I press 'Continue to payment' button on checkout")
@@ -34,10 +34,8 @@ public class CheckSectionsAvailabilitySteps {
     @And("'Delivery Address' and 'Billing Address' sections are disabled for editing")
     public void checkIfDelAddrAndBillAddrAreDisabled() {
 
-        boolean deliverySectionAvailability = deliveryAddressFragment.getFullNameField().isDisplayed();
-        Assert.assertFalse(false);
-
-        boolean billingSectionAvailability = billingAddressFragment.getOptionOnBillAddrBlock().isDisplayed();
+        boolean deliverySectionAvailability = deliveryAddressFragment.isEnabledFullNameField();
+        boolean billingSectionAvailability = billingAddressFragment.isEnabledBillingInformation();
 
         Assertions.assertAll("Delivery and Billing sections are editable!",
                 () -> assertTrue(deliverySectionAvailability),

@@ -19,7 +19,7 @@ public class SearchResultsFragment extends AbstractFragment {
     @FindBy(xpath = "//div[@class='item-info']/h3/a")
     private List<WebElement> locatorsOfBooksFromSearchResult;
 
-    @FindBy(xpath = "//a[@href='/basket/addisbn/isbn13/9781492072508']")
+    @FindBy(xpath = "//a[@data-isbn='9780131872486']")
     private WebElement addToBasketButton;
 
 

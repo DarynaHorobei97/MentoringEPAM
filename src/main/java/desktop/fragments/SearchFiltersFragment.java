@@ -17,6 +17,8 @@ public class SearchFiltersFragment extends AbstractFragment {
     @FindBy(xpath = "//button[contains(text(),'Refine results')]")
     private WebElement refineResultsButton;
 
+
+
     @FindBy(xpath = "//div[@class='corner-content']//a[@class='close-button']")
     private WebElement alertAboutCovid;
 
