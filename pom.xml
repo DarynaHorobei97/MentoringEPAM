@@ -107,7 +107,8 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.0.0-M5</version>
                     <configuration>
-                        <testFailureIgnore>true</testFailureIgnore>
+                        <argLine>-Dbrowser=$(browser) -D$(driver)=$(driver.path)</argLine>
+
                     </configuration>
                     <executions>
                         <execution>
@@ -141,5 +142,26 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
     </build>
+
+    <profiles>
+        <profile>
+            <id>Chrome</id>
+            <properties>
+                <browser>chrome</browser>
+                <driver>webdriver.chrome.driver</driver>
+                <driver.path>$(project.basedir)+\\src\\main\\resources\\chromedriver.exe</driver.path>
+            </properties>
+        </profile>
+        <profile>
+            <id>Firefox</id>
+            <properties>
+                <browser>firefox</browser>
+                <driver>webdriver.gecko.driver</driver>
+                <driver.path>$(project.basedir)+\\src\\main\\resources\\geckodriver.exe</driver.path>
+            </properties>
+        </profile>
+
+    </profiles>
 </project>
