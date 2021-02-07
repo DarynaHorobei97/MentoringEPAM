@@ -14,11 +14,13 @@ public class SingletonDriver {
 
     private static WebDriver driver;
 
-   // private static String browser = "browser";
+
+    public static final String browserFromJenkins ="firefox";
+            //System.getProperty("BrowserName");
 
     public static WebDriver getDriver() {
-        switch (System.getProperty("browser")) {
-            case "Chrome":
+        switch (browserFromJenkins) {
+            case "chrome":
                 if (driver == null) {
                     //System.getProperty("browser");
                     System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
@@ -26,9 +28,9 @@ public class SingletonDriver {
                 }
                 break;
 
-            case "Firefox":
+            case "firefox":
                 if (driver == null) {
-                   // System.getProperty("browser");
+                    //System.getProperty("browser");
                     System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe");
                     driver = new FirefoxDriver();
                 }

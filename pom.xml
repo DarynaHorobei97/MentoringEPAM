@@ -17,6 +17,7 @@
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
         <src.dir>src/main</src.dir>
+            <BrowserName></BrowserName>
     </properties>
 
     <dependencies>
@@ -107,7 +108,9 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.0.0-M5</version>
                     <configuration>
-                        <argLine>-Dbrowser=$(browser) -D$(driver)=$(driver.path)</argLine>
+                        <systemPropertyVariables>
+                            <browserName>${BrowserName}</browserName>
+                        </systemPropertyVariables>
 
                     </configuration>
                     <executions>
@@ -145,23 +148,5 @@
 
     </build>
 
-    <profiles>
-        <profile>
-            <id>Chrome</id>
-            <properties>
-                <browser>chrome</browser>
-                <driver>webdriver.chrome.driver</driver>
-                <driver.path>$(project.basedir)+\\src\\main\\resources\\chromedriver.exe</driver.path>
-            </properties>
-        </profile>
-        <profile>
-            <id>Firefox</id>
-            <properties>
-                <browser>firefox</browser>
-                <driver>webdriver.gecko.driver</driver>
-                <driver.path>$(project.basedir)+\\src\\main\\resources\\geckodriver.exe</driver.path>
-            </properties>
-        </profile>
 
-    </profiles>
 </project>
