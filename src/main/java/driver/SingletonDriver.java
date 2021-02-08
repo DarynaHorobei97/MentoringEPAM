@@ -15,7 +15,8 @@ public class SingletonDriver {
     private static WebDriver driver;
 
 
-    public static final String browserFromJenkins = System.getProperty("browser");
+   // public static final String browserFromJenkins = System.getProperty("browser");
+    public static final String browserFromJenkins = "chrome";
 
     public static WebDriver getDriver() {
         switch (browserFromJenkins) {
